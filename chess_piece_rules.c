@@ -58,7 +58,7 @@ void movePiece(ChessPiece board[BOARD_SIZE][BOARD_SIZE], Square from, Square to)
     }
 
     // Vérifie si le déplacement est valide pour un pion
-    if (piece.symbol == Pion_banc && !isValidPawnMove(from, to, board)) {
+    if ((piece.symbol == Pion_banc || piece.symbol == Pion_noir) && !isValidPawnMove(from, to, board)) {
         printf("Déplacement invalide pour un pion. Veuillez réessayer.\n");
         return;
     }
@@ -85,10 +85,16 @@ Square parsePosition(char* input) {
     }
 
     if (input[1] >= '1' && input[1] <= '9') {
-        position.row = input[1] - '1';
-    } else {
+        position.row = input[1] - '1';  
+    } 
+    else {
         position.row = -1;
     }
+  if(input[2] =='0')
+    position.row = 9;
+  if (input[2]=='1')
+    position.row = 10;
+
 
     return position;
 }

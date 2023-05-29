@@ -8,6 +8,8 @@
 #include <wchar.h>
 
 #define BOARD_SIZE 11
+#define Blanc 6
+#define Noir 1
 #define Pion_banc L'♙'
 #define Pion_noir L'♟'
 #define Tour_noir L'♜'
@@ -31,7 +33,7 @@ typedef struct {
 typedef struct {
     wchar_t symbol;
     Square position;
-    int color; // Nouvelle variable pour la couleur de la pièce
+    int color; // Nouvelle variable pour la couleur de la pièce, 6 blanc else noir
 } ChessPiece;
 
 #endif
